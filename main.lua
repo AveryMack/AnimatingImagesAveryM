@@ -10,6 +10,8 @@
 
 -- Your code here
 
+-- hide the status bar
+display.setStatusBar(display.HiddenStatusBar)
 
 
 
