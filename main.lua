@@ -1,4 +1,4 @@
------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 -- Title: Animating Images
 -- Name: Avery Mack
 -- Course: ICS2O/3C
@@ -45,7 +45,7 @@ end
 Runtime:addEventListener("enterFrame", MoveBall1)
 
 -- character image with width and height
-local beachball2 = display.newImageRect("Images/beachBall2.png", 100, 50)
+local beachball2 = display.newImageRect("Images/beachball2.png", 200, 200)
 
 -- global variables
 scrollSpeed2 = 4
@@ -78,15 +78,13 @@ end
 -- MoveShip will be called over and over again
 Runtime:addEventListener("enterFrame", MoveBall2)
 
-
-
 -- set the scroll speed of the ball
 scrollSpeed3 = 4
 
 -- character image with width and height
-local beachball3 = display.newImageRect("Images/beachball3.png", 100, 50)
+local beachball3 = display.newImageRect("Images/beachball3.png", 100, 100)
 
--- set the initial x and y position of heart
+-- set the initial x and y position of ball
 beachball3.x = display.contentWidth/2
 beachball3.y = 1000
 
@@ -116,7 +114,7 @@ end
 Runtime:addEventListener("enterFrame", MoveBall3)
 
 -- create the text object with the text size of 14
-textObjectBeachBalls = display.newText ("Look at all the beach balls", 25, 50, nil, 30)
+textObjectBeachBalls = display.newText ("Look at all the beach balls!", 25, 50, nil, 30)
 
 -- set the color of the text object
 textObjectBeachBalls:setFillColor (110/255, 0/255, 0/255)
@@ -128,15 +126,41 @@ textObjectBeachBalls.x = 25
 textObjectBeachBalls.y = 500
 
 -- play sound
-local correctSound = audio.loadSound( "Sounds/sound.mp3")
+local correctSound = audio.loadSound( "Sounds/song.mp3")
 local correctSoundChannel
 
 correctSoundChannel = audio.play(correctSound)
 
+-- global variables
+scrollSpeed4 = 4
 
+-- character image with width and height
+local beachball4 = display.newImageRect("Images/beachball.png", 100, 100)
 
+-- set the initial x and y position of beachball
+beachball4.x = 1000
+beachball4.y = display.contentHeight/2
 
+-- make the beachball visible
+beachball4.alpha = 0
 
+-- change the direction of the beachball
+beachball4:scale(-1,1)
+
+-- Function: MoveBall4
+-- Input: this function accepts an event listener
+-- Output: none 
+-- Description: This function adds the scroll speed to the x-value of the ball
+local function MoveBall4(event)
+	-- add the scroll speed to the x-value of the ball
+	beachball4.x = beachball4.x - scrollSpeed4
+
+	-- change the transparency of the ball everytime it moves so that it fades in
+	beachball4.alpha = beachball4.alpha + 0.01
+end 
+
+-- MoveShip will be called over and over again
+Runtime:addEventListener("enterFrame", MoveBall4)
 
 
 
